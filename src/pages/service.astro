@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    title: 'Kitchen Design & Installation',
+    img: '/images/unnamed%20(4).jpg',
+    alt: 'Priests — kitchen design and installation',
+    description: 'From the initial design through to the final fitting, we handle every aspect of your kitchen installation. Units, worktops, appliances, plumbing, electrical work, tiling and plastering — all done by our own team with no subcontractors involved.',
+  },
+  {
+    title: 'Bathroom Renovation',
+    img: '/images/unnamed%20(13).jpg',
+    alt: 'Priests — bathroom renovation and refit',
+    description: 'Complete bathroom strip-outs and refits. We handle the plumbing, tiling, electrics, plastering and carpentry ourselves — so you deal with one team throughout. From ensuites to full family bathrooms, we take the job seriously.',
+  },
+  {
+    title: 'Plumbing',
+    img: '/images/unnamed.jpg',
+    alt: 'Plumbing — pipes, fixtures and water supply',
+    description: 'All aspects of domestic plumbing — from leaking taps and burst pipes to full bathroom plumbing installations. We work to a high standard on every job, whether it\'s a small repair or a complete new system.',
+  },
+  {
+    title: 'Tiling',
+    img: '/images/unnamed%20(16).jpg',
+    alt: 'Professional tiling — wall and floor tiles',
+    description: 'Precise tiling work for kitchens, bathrooms, utility rooms and more. Wall tiles, floor tiles, large format, mosaic — we have the experience to handle any specification. Clean cuts, proper waterproofing, and a finish that holds up.',
+  },
+  {
+    title: 'Electrical Work',
+    img: '/images/unnamed%20(10).jpg',
+    alt: 'Electrical work — lighting, sockets and wiring',
+    description: 'Kitchen and bathroom electrical work including lighting, sockets, extractor fans and appliance connections. All work is carried out to current regulations, with certificates provided where required.',
+  },
+  {
+    title: 'Heating',
+    img: '/images/unnamed%20(9).jpg',
+    alt: 'Heating installation — radiators and underfloor heating',
+    description: 'Heating work as part of kitchen and bathroom projects — radiator installation, underfloor heating, towel rail fitting and pipework. Coordinated alongside other trades so the job progresses smoothly.',
+  },
+  {
+    title: 'Carpentry',
+    img: '/images/unnamed%20(3).jpg',
+    alt: 'Carpentry — fitted units and bespoke joinery',
+    description: 'Fitted units, boxing in, door hanging, skirting and bespoke joinery work. Quality carpentry makes the difference between a good job and a great one — and we don\'t cut corners.',
+  },
+  {
+    title: 'Plastering',
+    img: '/images/unnamed%20(5).jpg',
+    alt: 'Plastering — smooth walls and ceilings',
+    description: 'Skim plastering, dot and dab, and patch repairs as part of any installation. A good plaster finish is what makes rooms look sharp once the paint goes on — we know how to get it right.',
+  },
+];
+---
+
+<Layout title="Services — Priests Kitchens & Bathrooms" description="Kitchen installation, bathroom renovation, plumbing, tiling, electrical work, carpentry, heating and plastering across High Wycombe and Buckinghamshire.">
+  <TopBar />
+  <Navbar />
+
+  <section class="bg-gray-50 border-b border-gray-100 py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <span class="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Our Services</span>
+      <h1 class="mt-3 text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+        Everything Your Project Needs.<br />All Under One Roof.
+      </h1>
+      <p class="mt-5 text-gray-500 text-[15px] leading-relaxed max-w-xl">
+        All trades handled in-house across High Wycombe and Buckinghamshire. No subcontractors, no gaps. One team from start to finish.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      {services.map((service) => (
+        <div class="service-item">
+          <div class="service-img aspect-[4/3] rounded-xl overflow-hidden">
+            <img src={service.img} alt={service.alt} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="service-text">
+            <h2 class="text-2xl lg:text-3xl font-extrabold text-gray-900 mb-4">{service.title}</h2>
+            <p class="text-gray-500 text-[15px] leading-relaxed mb-6">{service.description}</p>
+            <a href="/contact" class="inline-flex items-center gap-2 bg-[#6ec4d0] text-gray-900 px-6 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-[#5aabb7] transition-colors rounded">
+              GET A QUOTE
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .service-item { display:flex; flex-direction:column; gap:2rem; padding-top:3.5rem; margin-top:3.5rem; border-top:1px solid #e5e7eb; }
+    .service-item:first-child { padding-top:0; margin-top:0; border-top:none; }
+    .service-img, .service-text { width:100%; }
+    @media (min-width:1024px) {
+      .service-item { flex-direction:row; align-items:center; gap:5rem; padding-top:5rem; margin-top:5rem; }
+      .service-item:nth-child(even) { flex-direction:row-reverse; }
+      .service-img, .service-text { flex:1; min-width:0; }
+    }
+  </style>
+
+  <section class="bg-[#0D1524] py-14">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="text-2xl font-extrabold text-white">Not sure what you need?</h2>
+        <p class="text-gray-400 text-sm mt-1">Get in touch and we'll point you in the right direction.</p>
+      </div>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 bg-[#6ec4d0] text-gray-900 px-7 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#5aabb7] transition-colors rounded whitespace-nowrap"
+      >
+        GET A FREE QUOTE
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

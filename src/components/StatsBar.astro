@@ -1,0 +1,21 @@
+---
+const stats = [
+  { value: '20+', label: 'Years Experience' },
+  { value: '9.9', label: 'Checkatrade Score' },
+  { value: '148', label: 'Verified Reviews' },
+  { value: '8',   label: 'Trades In-House' },
+];
+---
+
+<section class="bg-[#0D1524] py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((stat, i) => (
+        <div class={`text-center ${i < stats.length - 1 ? 'lg:border-r lg:border-gray-800' : ''}`}>
+          <p class="text-5xl font-extrabold text-white tracking-tight">{stat.value}</p>
+          <p class="text-gray-500 text-xs font-bold uppercase tracking-[0.15em] mt-2">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/service' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/priestkblogo.webp" alt="Priests Kitchens & Bathrooms" class="h-10 w-auto" />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex items-center gap-7">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="text-gray-700 hover:text-[#6ec4d0] font-medium text-sm transition-colors py-2"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA + Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a
+          href="/contact"
+          class="hidden sm:flex items-center gap-2 bg-[#6ec4d0] text-gray-900 px-5 py-2.5 rounded text-sm font-semibold hover:bg-[#5aabb7] transition-colors"
+        >
+          Get a Quote
+        </a>
+        <button id="mobile-toggle" class="md:hidden p-2 text-gray-700" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 py-4">
+      {navLinks.map(link => (
+        <a href={link.href} class="block py-2.5 px-2 text-gray-700 hover:text-[#6ec4d0] font-medium text-sm transition-colors">
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact" class="mt-3 flex items-center gap-2 bg-[#6ec4d0] text-gray-900 px-5 py-3 rounded text-sm font-semibold w-full justify-center hover:bg-[#5aabb7] transition-colors">
+        Get a Quote
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

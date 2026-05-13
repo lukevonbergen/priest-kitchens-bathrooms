@@ -1,0 +1,80 @@
+---
+const features = [
+  {
+    title: '9.9/10 Checkatrade',
+    desc: 'Rated 9.9 out of 10 from 148 verified reviews. Our reputation is built on the quality of every job.',
+    featured: true,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>`,
+  },
+  {
+    title: 'All Trades In-House',
+    desc: 'Plumbing, tiling, electrical, carpentry, heating and plastering — all done by our own team.',
+    featured: false,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  },
+  {
+    title: '20+ Years Experience',
+    desc: 'Two decades fitting kitchens and bathrooms across High Wycombe and Buckinghamshire.',
+    featured: false,
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  },
+];
+---
+
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Left: Content -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">WHY CHOOSE US</span>
+        </div>
+
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+          Your Kitchen and Bathroom<br />Done Once, Done Right
+        </h2>
+
+        <p class="text-gray-500 text-[15px] leading-relaxed mb-8">
+          Choosing Priests means one team, one point of contact, and no need to coordinate multiple trades. We've been doing this for over 20 years and our Checkatrade score of 9.9 from 148 reviews reflects the standard we hold ourselves to.
+        </p>
+
+        <!-- Feature boxes -->
+        <div class="grid grid-cols-3 gap-3">
+          {features.map(feature => (
+            <div class={`rounded-xl p-4 ${feature.featured ? 'bg-[#6ec4d0] text-gray-900' : 'bg-gray-50 text-gray-700'}`}>
+              <div class={`w-10 h-10 rounded-lg flex items-center justify-center mb-3 ${feature.featured ? 'bg-gray-900/10' : 'bg-white'}`}>
+                <Fragment set:html={feature.icon} />
+              </div>
+              <h4 class="font-bold text-sm mb-1">{feature.title}</h4>
+              <p class={`text-xs leading-relaxed ${feature.featured ? 'text-gray-700' : 'text-gray-500'}`}>{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: project photos -->
+      <div class="relative">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden">
+            <img
+              src="/images/unnamed%20(2).jpg"
+              alt="Priests — kitchen installation project"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="aspect-[3/4] rounded-2xl overflow-hidden mt-8">
+            <img
+              src="/images/unnamed%20(8).jpg"
+              alt="Priests — bathroom renovation project"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

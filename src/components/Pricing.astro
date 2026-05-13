@@ -1,0 +1,107 @@
+---
+const plans = [
+  {
+    name: 'ANNUAL SERVICE',
+    price: '89',
+    unit: 'Per Year',
+    featured: false,
+    features: [
+      'Full boiler service',
+      'Safety inspection',
+      'Flue gas analysis',
+      'Filter clean & check',
+      'Service certificate issued',
+    ],
+  },
+  {
+    name: 'NEW BOILER',
+    price: '1,999',
+    unit: 'Installed',
+    featured: true,
+    features: [
+      'Supply & fit new boiler',
+      'Vaillant, Worcester or Ideal',
+      'Full system flush included',
+      'New controls fitted',
+      'Gas Safe certificate',
+    ],
+  },
+  {
+    name: 'FULL SYSTEM',
+    price: '3,499',
+    unit: 'Installed',
+    featured: false,
+    features: [
+      'New boiler installation',
+      'Full radiator replacement',
+      'New pipework & controls',
+      'Smart thermostat fitted',
+      'Gas Safe certificate',
+    ],
+  },
+];
+---
+
+<section class="py-20 lg:py-28 bg-[#0D1524]">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <div class="flex items-center justify-center gap-2 mb-4">
+        <svg class="w-5 h-6 text-blue-400" viewBox="0 0 20 28" fill="currentColor">
+          <path d="M10 0C7 5 2 9 2 16a8 8 0 0016 0C18 9 13 5 10 0z"/>
+          <path d="M10 9c1 2.5 4 5 4 8a4 4 0 01-8 0c0-3 3-5.5 4-8z" fill="white" opacity="0.5"/>
+        </svg>
+        <span class="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">PRICING PLAN</span>
+      </div>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+        Affordable Heating Solutions<br />for Every Budget
+      </h2>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {plans.map(plan => (
+        <div class={`rounded-xl p-8 ${plan.featured ? 'bg-blue-600' : 'bg-[#1A2535]'}`}>
+          <p class={`text-xs font-bold uppercase tracking-widest mb-4 ${plan.featured ? 'text-blue-100' : 'text-gray-400'}`}>
+            {plan.name}
+          </p>
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold text-white">&#163;{plan.price}</span>
+            <span class="text-gray-400 text-sm ml-2">{plan.unit}</span>
+          </div>
+
+          <a
+            href="/contact"
+            class={`flex items-center justify-center gap-2 w-full py-3.5 text-xs font-bold uppercase tracking-widest rounded transition-colors mb-8 ${
+              plan.featured
+                ? 'bg-white text-blue-600 hover:bg-blue-50'
+                : 'border border-gray-600 text-white hover:border-blue-500 hover:text-blue-400'
+            }`}
+          >
+            GET A QUOTE
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+
+          <ul class="space-y-3">
+            {plan.features.map(feature => (
+              <li class="flex items-center gap-3">
+                <div class={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${plan.featured ? 'bg-white/20' : 'bg-blue-600/30'}`}>
+                  <svg class={`w-3 h-3 ${plan.featured ? 'text-white' : 'text-blue-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <span class={`text-sm ${plan.featured ? 'text-white' : 'text-gray-400'}`}>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-gray-500 text-xs mt-6">* Prices are guide prices. Call <a href="tel:07740272373" class="hover:text-[#6ec4d0] transition-colors">07740 272373</a> for a free, no-obligation quote.</p>
+
+  </div>
+</section>

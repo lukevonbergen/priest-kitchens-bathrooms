@@ -1,0 +1,61 @@
+---
+---
+<section class="relative overflow-hidden bg-white min-h-[560px]">
+  <div class="absolute right-0 top-0 w-1/2 h-full bg-slate-100"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="flex items-center min-h-[560px]">
+
+      <!-- Left content -->
+      <div class="w-full lg:w-[52%] py-20 lg:py-28">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="text-xs font-bold uppercase tracking-[0.18em] text-gray-700">KITCHENS & BATHROOMS · HIGH WYCOMBE & BUCKINGHAMSHIRE</span>
+        </div>
+
+        <h1 class="text-4xl lg:text-5xl xl:text-[52px] font-extrabold text-gray-900 leading-[1.12] mb-5">
+          Kitchens &amp; Bathrooms<br />Designed and Built<br />to Last
+        </h1>
+
+        <p class="text-gray-500 text-[15px] leading-relaxed mb-8 max-w-sm">
+          Full design-to-finish installation by our own team. Over 20 years fitting kitchens and bathrooms across High Wycombe and Buckinghamshire.
+        </p>
+
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-[#6ec4d0] text-gray-900 px-7 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[#5aabb7] transition-colors rounded"
+        >
+          GET A FREE QUOTE
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: project photo + floating badge -->
+      <div class="hidden lg:block lg:absolute lg:right-0 lg:top-0 lg:w-[50%] lg:h-full">
+        <img
+          src="/images/unnamed%20(6).jpg"
+          alt="Priests Kitchens & Bathrooms — completed installation"
+          class="w-full h-full object-cover"
+        />
+        <!-- Floating Checkatrade badge -->
+        <div class="absolute bottom-10 left-8 bg-white rounded-xl shadow-lg px-5 py-4">
+          <div class="flex items-center gap-3">
+            <div class="flex gap-0.5">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <div>
+              <p class="text-gray-900 font-extrabold text-sm leading-none">9.9 / 10</p>
+              <p class="text-gray-400 text-xs mt-0.5">148 Checkatrade reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
